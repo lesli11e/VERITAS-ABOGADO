@@ -1,0 +1,712 @@
+
+:root {
+    --black: #101114;
+    --dark: #191a1e;
+    --gold: #c9a45c;
+    --gold-light: #efd18b;
+    --cream: #f7f4ed;
+    --white: #fff;
+    --text: #626262;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--black);
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ENCABEZADO */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    min-height: 85px;
+    padding: 15px 6%;
+    background: rgba(12, 12, 14, .98);
+    border-bottom: 1px solid rgba(201,164,92,.5);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--gold-light);
+    font-family: 'Playfair Display', serif;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.logo-icon {
+    font-size: 40px;
+}
+
+.logo small {
+    display: block;
+    color: white;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 5px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav a {
+    color: white;
+    font-size: 12px;
+    text-transform: uppercase;
+    transition: .3s;
+}
+
+.nav a:hover {
+    color: var(--gold-light);
+}
+
+.nav .nav-button {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    color: #111;
+    padding: 14px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+.menu-toggle {
+    display: none;
+    color: white;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* PORTADA CON NUEVA IMAGEN */
+
+.hero {
+    min-height: 650px;
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    padding: 85px 7%;
+    color: white;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(9, 9, 10, .97) 0%,
+            rgba(12, 12, 13, .88) 40%,
+            rgba(12, 12, 13, .30) 100%
+        ),
+        url("https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=2000&q=90");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+        135deg,
+        transparent 70%,
+        rgba(201,164,92,.16)
+    );
+    pointer-events: none;
+}
+
+.hero-content {
+    max-width: 680px;
+    position: relative;
+    z-index: 1;
+}
+
+.eyebrow {
+    color: var(--gold-light);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 6vw, 76px);
+    margin: 22px 0;
+    line-height: 1.15;
+}
+
+.hero h1 span {
+    color: var(--gold-light);
+}
+
+.hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(23px, 3vw, 35px);
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.hero p {
+    max-width: 540px;
+    color: #e1e1e1;
+    line-height: 1.9;
+    margin: 23px 0 32px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+/* BOTONES */
+
+.btn {
+    display: inline-block;
+    padding: 15px 25px;
+    border-radius: 35px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid var(--gold);
+    transition: .3s ease;
+}
+
+.btn-gold {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    color: #171717;
+}
+
+.btn-gold:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(201,164,92,.35);
+}
+
+.btn-outline {
+    color: white;
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background: var(--gold);
+    color: var(--black);
+}
+
+/* SECCIONES */
+
+.section {
+    padding: 90px 7%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading > span {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.section-heading h2,
+.about-content h2,
+.contact-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    margin: 14px 0;
+}
+
+.section-heading strong,
+.about-content strong,
+.contact-info strong {
+    color: var(--gold);
+}
+
+.section-heading p {
+    color: var(--text);
+    line-height: 1.7;
+}
+
+/* SERVICIOS */
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 23px;
+}
+
+.service-card {
+    background: white;
+    padding: 35px 25px;
+    text-align: center;
+    border: 1px solid #e9e1d3;
+    border-radius: 13px;
+    transition: .35s;
+}
+
+.service-card > span {
+    color: var(--gold);
+    font-size: 43px;
+}
+
+.service-card h3 {
+    font-family: 'Playfair Display', serif;
+    margin: 17px 0 10px;
+}
+
+.service-card p {
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.service-card:hover {
+    transform: translateY(-9px);
+    border-color: var(--gold);
+    box-shadow: 0 12px 30px rgba(0,0,0,.09);
+}
+
+/* NOSOTROS */
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+    background: var(--black);
+    color: white;
+}
+
+.about-image {
+    min-height: 420px;
+    border-radius: 12px;
+    background:
+        linear-gradient(rgba(0,0,0,.10), rgba(0,0,0,.10)),
+        url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1100&q=85")
+        center/cover;
+}
+
+.about-content p {
+    color: #ccc;
+    line-height: 1.9;
+    margin: 18px 0;
+}
+
+/* EQUIPO */
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.team-card {
+    background: white;
+    padding: 25px 15px;
+    text-align: center;
+    border-radius: 12px;
+    border: 1px solid #eee5d6;
+    transition: .3s;
+}
+
+.team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,.08);
+}
+
+.team-photo {
+    width: 115px;
+    height: 115px;
+    margin: auto;
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+    background: var(--black);
+    color: var(--gold);
+    display: grid;
+    place-items: center;
+    font-size: 48px;
+}
+
+.team-card h3 {
+    margin: 18px 0 7px;
+    font-family: 'Playfair Display', serif;
+}
+
+.team-card p {
+    color: var(--text);
+    font-size: 12px;
+}
+
+/* FRASE DESTACADA */
+
+.quote {
+    padding: 80px 10%;
+    text-align: center;
+    background: linear-gradient(135deg, #17181b, #302719);
+    color: white;
+}
+
+.quote > span {
+    font-family: Georgia, serif;
+    font-size: 65px;
+    color: var(--gold);
+}
+
+.quote h2 {
+    max-width: 800px;
+    margin: auto;
+    font-family: 'Playfair Display', serif;
+    font-size: 29px;
+    line-height: 1.5;
+}
+
+.quote p {
+    color: var(--gold-light);
+    letter-spacing: 4px;
+    font-size: 12px;
+    margin-top: 25px;
+}
+
+/* CONTACTO */
+
+.contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.contact-info p {
+    margin: 20px 0;
+    color: var(--text);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 32px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.07);
+}
+
+.contact-form h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 14px;
+    background: #fafafa;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: 1px solid var(--gold);
+    border-color: var(--gold);
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form small {
+    color: #777;
+    font-size: 11px;
+}
+
+/* PIE DE PÁGINA */
+
+.footer {
+    background: var(--black);
+    color: white;
+    padding: 35px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--gold);
+}
+
+.footer p {
+    color: var(--gold-light);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+}
+
+.footer > span {
+    color: #aaa;
+    font-size: 11px;
+}
+
+/* WHATSAPP */
+
+.whatsapp {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 55px;
+    height: 55px;
+    background: #25d366;
+    color: white;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 28px;
+    z-index: 999;
+    box-shadow: 0 5px 20px rgba(0,0,0,.2);
+}
+
+/* VOLVER ARRIBA */
+
+.back-top {
+    position: fixed;
+    bottom: 92px;
+    right: 30px;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: var(--gold);
+    font-size: 23px;
+    cursor: pointer;
+    display: none;
+    z-index: 999;
+}
+
+/* ANIMACIONES */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 950px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav {
+        position: absolute;
+        top: 85px;
+        left: 0;
+        width: 100%;
+        background: var(--black);
+        display: none;
+        flex-direction: column;
+        padding: 25px;
+        align-items: stretch;
+        gap: 22px;
+    }
+
+    .nav.active {
+        display: flex;
+    }
+
+    .nav a {
+        text-align: center;
+    }
+
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+
+    .hero {
+        min-height: 570px;
+        padding: 65px 6%;
+        background-position: 65% center;
+    }
+
+    .hero h2 {
+        font-size: 23px;
+    }
+
+    .section {
+        padding: 65px 6%;
+    }
+
+    .section-heading h2,
+    .about-content h2,
+    .contact-info h2 {
+        font-size: 30px;
+    }
+
+    .service-grid,
+    .team-grid,
+    .about,
+    .contact {
+        grid-template-columns: 1fr;
+    }
+
+    .about {
+        gap: 30px;
+    }
+
+    .about-image {
+        min-height: 270px;
+    }
+
+    .quote h2 {
+        font-size: 22px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+ 
+
+/* TARJETAS INTERACTIVAS DE ABOGADOS */
+
+.team-card {
+    display: block;
+    color: var(--black);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.profile-link {
+    display: inline-block;
+    margin-top: 18px;
+    color: #a77c32;
+    font-size: 13px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.team-card:hover .profile-link {
+    letter-spacing: 1px;
+}
+
+/* PERFIL INDIVIDUAL */
+
+.lawyer-profile {
+    min-height: 650px;
+    display: grid;
+    grid-template-columns: .85fr 1.15fr;
+    align-items: center;
+    gap: 65px;
+    background: #f7f4ed;
+}
+
+.profile-image {
+    min-height: 470px;
+    border-radius: 15px;
+    background:
+        linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.55)),
+        url("https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=1000&q=85")
+        center/cover;
+    display: grid;
+    place-items: center;
+    border: 3px solid var(--gold);
+}
+
+.profile-symbol {
+    font-size: 100px;
+    color: var(--gold-light);
+}
+
+.profile-information h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(35px, 5vw, 52px);
+    margin: 20px 0;
+}
+
+.profile-information h2 {
+    color: #a77c32;
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.profile-information > p {
+    color: #555;
+    line-height: 1.9;
+    margin-bottom: 25px;
+}
+
+.profile-details {
+    background: white;
+    padding: 22px;
+    border-left: 3px solid var(--gold);
+    margin-bottom: 25px;
+    border-radius: 5px;
+}
+
+.profile-details p {
+    margin: 10px 0;
+    color: #555;
+}
+
+.back-link {
+    color: #94702f;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+@media (max-width: 700px) {
+    .lawyer-profile {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding-top: 45px;
+    }
+
+    .profile-image {
+        min-height: 300px;
+    }
+
+    .profile-information h1 {
+        font-size: 36px;
+    }
+}
+
